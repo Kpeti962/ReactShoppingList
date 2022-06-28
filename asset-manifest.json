@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/ReactShoppingList/static/js/main.64e308db.js",
+    "static/js/787.b7d63c9a.chunk.js": "/ReactShoppingList/static/js/787.b7d63c9a.chunk.js",
+    "index.html": "/ReactShoppingList/index.html",
+    "main.64e308db.js.map": "/ReactShoppingList/static/js/main.64e308db.js.map",
+    "787.b7d63c9a.chunk.js.map": "/ReactShoppingList/static/js/787.b7d63c9a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.64e308db.js"
+  ]
+}

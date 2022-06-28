@@ -6,9 +6,15 @@ import List from "./components/List";
 function App() {
   return (
     <div>
+      <div className="main">
+      <div className="title">
       <Header />
+      </div>
+      <div className="lists">
       <Inputs />
       <List />
+      </div>
+      </div>
     </div>
   );
 }

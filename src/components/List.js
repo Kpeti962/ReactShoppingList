@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Inputs from './Inputs'
 
-const List = ({lists}) => {
+
+
+
+const List = () => {
+
+    const [items, setItems] = useState([])
 
     return (
         <div className='list'>

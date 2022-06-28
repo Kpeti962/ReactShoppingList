@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+
 
 const Inputs = () => {
   const addToList = () => {
-    const lists = document
+    const newItem = document
       .getElementById("list")
       .appendChild(
         document.createTextNode(
@@ -11,16 +12,14 @@ const Inputs = () => {
           } / ${document.getElementById("selectInput").value}`
         
           )
-
-        
       );
-      lists.style.display = "list-item";
+
   };
 
   return (
     <div className="inputs">
-      <input type="text" className="input input-text" />
-      <input type="number" className="quantityinput" />
+      <input placeholder="Termék" type="text" className="input input-text" />
+      <input placeholder="Mennyiség" type="number" className="quantityinput" />
       <select name="" id="selectInput">
         <option value="default">Válassz</option>
         <option value="csomag">csomag</option>

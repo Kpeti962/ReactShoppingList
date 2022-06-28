@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    align-items: center;
+}
+
+body{
+    background-color: rgb(250, 31, 31);
+}
+.title{
+    text-align: center;
+}
+.main{
+    background-color: azure;
+    justify-content: center;
+    align-items: center;
+    margin: 0 400px 0 400px;
+    height: 90vh;
+    margin-top: 20px;
+    border-radius: 80px;
+}
+.lists {
+    text-align: center;
+}
+

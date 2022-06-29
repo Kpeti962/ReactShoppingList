@@ -4,29 +4,46 @@
 }
 
 body{
-    background-color: rgb(250, 31, 31);
+    background-color: rgb(250, 215, 139);
+    ;
 }
 .title{
     text-align: center;
+    font-family: 'Yellowtail', cursive;
 }
 .main{
-    background-color: azure;
+    background-color: rgb(247, 211, 54);
     justify-content: center;
     align-items: center;
     margin: 0 400px 0 400px;
     height: 90vh;
     margin-top: 20px;
     border-radius: 80px;
+    border: 5px solid rgb(252, 172, 0);
+    box-shadow: 0px 0px 150px 
+    
 }
 .lists {
     text-align: center;
+    
+    
 
     #list{
+
         text-align: left;
         margin-top: 40px;
-        margin-left: 120px;
+        padding-left: 18rem;
+        margin-left: 2rem;
         margin-right: 150px;
+        font-family: 'Yellowtail', cursive;
+        list-style-type: none;
+        overflow: auto;
+        width: 650px;
+        height: 400px;
+        border: 5px solid rgb(252, 172, 0);
+    box-shadow: 0px 0px 150px    
     }
+
     li:hover{
         background-color: rgb(201, 201, 201);
         transition: ease-in-out .25s;

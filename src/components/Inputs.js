@@ -10,7 +10,10 @@ const Inputs = () => {
   const [selectInput, setSelectInput] = useState([])
 
   const foodInputHandler = (e) => {
+    e.preventDefault()
     setFoodInput(e.target.value)
+    
+    
   }
   const qntityInputHandler = (e) => {
     setQntityInput(e.target.value)
@@ -22,11 +25,15 @@ const Inputs = () => {
 
   
   const addToList = () => {
-    setNewItem(`${foodInput} / ${qntityInput} ${selectInput}`)
+    setNewItem([...newItem, `${foodInput} / ${qntityInput} ${selectInput}`]);
+    setFoodInput("");
+    setQntityInput("");
+    setSelectInput("")
 
-   
 
+ 
 
+  
     
    }
   return (
@@ -47,7 +54,9 @@ const Inputs = () => {
       </button>
       <div className="list">
         <ul id="list">
-       <li>{newItem}</li>
+       {newItem.map(item => (
+        <li>{item}</li>
+       ))}
         </ul>
       </div>
     </div>

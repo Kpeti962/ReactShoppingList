@@ -20,5 +20,18 @@ body{
 }
 .lists {
     text-align: center;
+
+    #list{
+        text-align: left;
+        margin-top: 40px;
+        margin-left: 120px;
+        margin-right: 150px;
+    }
+    li:hover{
+        background-color: rgb(201, 201, 201);
+        transition: ease-in-out .25s;
+        cursor: pointer;
+    }
 }
+
 

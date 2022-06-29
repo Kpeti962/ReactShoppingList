@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 
+//const [newItem, setNemItem] = useState
+/* const foods = document.querySelector(".input-text");
+  const qtity = document.querySelector(".quantityinput");
+  const unit = document.getElementById("selectInput"); */
+
+
 
 const Inputs = () => {
+  const [newItem, setNewItem] = useState([]);
+  const [textInput, setTextInput] = useState([])
+
+  const userInputHandler = (e) => {
+setTextInput(e.target.value)
+  }
   const addToList = () => {
-    const newItem = document
-      .getElementById("list")
-      .appendChild(
-        document.createTextNode(
-          `${document.querySelector(".input-text").value} ${
-            document.querySelector(".quantityinput").value
-          } / ${document.getElementById("selectInput").value}`
-        
-          )
-      );
+    setNewItem(textInput)
 
-  };
+   
 
+
+    
+   }
   return (
     <div className="inputs">
-      <input placeholder="Termék" type="text" className="input input-text" />
+      <input placeholder="Termék" type="text" className="input input-text" value = {textInput} onChange={userInputHandler} />
       <input placeholder="Mennyiség" type="number" className="quantityinput" />
       <select name="" id="selectInput">
         <option value="default">Válassz</option>
@@ -33,7 +39,9 @@ const Inputs = () => {
         Felvétel
       </button>
       <div className="list">
-        <ul id="list"></ul>
+        <ul id="list">
+       <li>{newItem}</li>
+        </ul>
       </div>
     </div>
   );

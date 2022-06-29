@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 
-//const [newItem, setNemItem] = useState
-/* const foods = document.querySelector(".input-text");
-  const qtity = document.querySelector(".quantityinput");
-  const unit = document.getElementById("selectInput"); */
 
 
 
 const Inputs = () => {
   const [newItem, setNewItem] = useState([]);
-  const [textInput, setTextInput] = useState([])
+  const [foodInput, setFoodInput] = useState([])
+  const [qntityInput, setQntityInput] = useState([])
+  const [selectInput, setSelectInput] = useState([])
 
-  const userInputHandler = (e) => {
-setTextInput(e.target.value)
+  const foodInputHandler = (e) => {
+    setFoodInput(e.target.value)
   }
+  const qntityInputHandler = (e) => {
+    setQntityInput(e.target.value)
+  }
+  const selectInputHandler = (e) => {
+    setSelectInput(e.target.value)
+  }
+  
+
+  
   const addToList = () => {
-    setNewItem(textInput)
+    setNewItem(`${foodInput} / ${qntityInput} ${selectInput}`)
 
    
 
@@ -24,9 +31,9 @@ setTextInput(e.target.value)
    }
   return (
     <div className="inputs">
-      <input placeholder="Termék" type="text" className="input input-text" value = {textInput} onChange={userInputHandler} />
-      <input placeholder="Mennyiség" type="number" className="quantityinput" />
-      <select name="" id="selectInput">
+      <input placeholder="Termék" type="text" className="input input-text" value = {foodInput} onChange={foodInputHandler} />
+      <input placeholder="Mennyiség" type="number" className="quantityinput" value = {qntityInput} onChange={qntityInputHandler} />
+      <select name="" id="selectInput" value = {selectInput} onChange={selectInputHandler}>
         <option value="default">Válassz</option>
         <option value="csomag">csomag</option>
         <option value="db">db</option>

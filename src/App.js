@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import Inputs from "./components/Inputs";
 
-function App() {
+function App(foodInput, qntityInput, selectInput) {
   return (
     <div>
       <div className="main">

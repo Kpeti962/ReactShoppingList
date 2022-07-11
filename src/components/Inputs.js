@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import { toHaveStyle } from "@testing-library/jest-dom/dist/matchers";
+import React from "react";
 import { v4 as uuidv4 } from "uuid";
+import List from "./List";
 
-const Inputs = () => {
-  const [newItem, setNewItem] = useState([]);
-  const [foodInput, setFoodInput] = useState([]);
-  const [qntityInput, setQntityInput] = useState([]);
-  const [selectInput, setSelectInput] = useState([]);
-  const [deleteInput, setDeleteInput] = useState(false)
-
-
+const Inputs = ({
+  newItem,
+  setNewItem,
+  foodInput,
+  setFoodInput,
+  qntityInput,
+  setQntityInput,
+  selectInput,
+  setSelectInput,
+}) => {
   const foodInputHandler = (e) => {
-    e.preventDefault();
     setFoodInput(e.target.value);
   };
   const qntityInputHandler = (e) => {
@@ -22,16 +25,31 @@ const Inputs = () => {
 
   const addToList = (e) => {
     e.preventDefault();
-    setNewItem([...newItem, `${foodInput} / ${qntityInput} ${selectInput} ${deleteInput}`]);
-    setFoodInput("");
-    setQntityInput("");
-    setSelectInput("");
-    setDeleteInput(current => !current)
-   
-
+  
+    if(foodInput === ""){
+    alert("Please type the product")
+     } else if (qntityInput === ""){
+      alert("Please type the quantity")
+     } else if(selectInput === "") {
+      alert("Please add the unit")
+     } else {
+      setNewItem([
+        ...newItem,
+        {
+          productName: foodInput,
+          quantity: qntityInput,
+          unit: selectInput,
+          id: uuidv4(),
+        },
+      ]);
+      setFoodInput("");
+      setQntityInput("");
+      setSelectInput("");
+     }
   };
+
   return (
-    <div className="inputs">
+    <div className="inputsAndList">
       <div className="inputs-btns">
         <input
           placeholder="Product"
@@ -39,6 +57,7 @@ const Inputs = () => {
           className="input input-text"
           value={foodInput}
           onChange={foodInputHandler}
+          
         />
         <input
           placeholder="Quantity"
@@ -54,8 +73,8 @@ const Inputs = () => {
           onChange={selectInputHandler}
         >
           <option value="default">Choose</option>
-          <option value="csomag">pack</option>
-          <option value="db">piece</option>
+          <option value="pack">pack</option>
+          <option value="piece">piece</option>
           <option value="kg">kg</option>
           <option value="dkg">dkg</option>
           <option value="g">g</option>
@@ -68,10 +87,21 @@ const Inputs = () => {
 
       <div className="list">
         <ul id="list">
-          {newItem.map((item) => (
-            <li>{item}</li>
-          ))}
-          <button className={deleteInput ? "" : "hidden"} value={deleteInput}>Delete</button>
+          {newItem.map((item) => {
+            const { productName, quantity, unit, id } = item;
+            return (
+              <List
+                productName={productName}
+                quantity={quantity}
+                unit={unit}
+                newItem={newItem}
+                setNewItem={setNewItem}
+                id={id}
+                item={item}
+                
+              />
+            );
+          })}
         </ul>
       </div>
     </div>

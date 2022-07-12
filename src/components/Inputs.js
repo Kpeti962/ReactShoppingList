@@ -40,6 +40,7 @@ const Inputs = ({
           quantity: qntityInput,
           unit: selectInput,
           id: uuidv4(),
+          purchase: false
         },
       ]);
       setFoodInput("");
@@ -88,7 +89,7 @@ const Inputs = ({
       <div className="list">
         <ul id="list">
           {newItem.map((item) => {
-            const { productName, quantity, unit, id } = item;
+            const { productName, quantity, unit, id, purchase } = item;
             return (
               <List
                 productName={productName}
@@ -98,6 +99,7 @@ const Inputs = ({
                 setNewItem={setNewItem}
                 id={id}
                 item={item}
+                purchase={purchase}
                 
               />
             );
